@@ -23,6 +23,17 @@ export default {
   padding: 0;
   margin: 0;
 }
+img {
+  width: 100%;
+  height: 100%;
+}
+.content {
+  position: absolute;
+  top: 56px;
+  bottom: 0;
+  width: 100%;
+  overflow: scroll;
+}
 </style>
 
 

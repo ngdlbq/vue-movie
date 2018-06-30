@@ -12,6 +12,13 @@
     <div class="user" @click="toUser">
       <i class="iconfont icon-account"></i>
     </div>
+    <!-- <template v-else-if="type == 0 || type == 1">
+      <em class="iconfont icon-back back" @click="back"></em>
+      <div class="switch">
+        <span class="left" :class="{on: type == 1}" @click="toSwitch(1)">正在上映</span>
+        <span class="right" :class="{on: type == 0}" @click="toSwitch">即将上映</span>
+      </div>
+    </template> -->
   </div>
 </template>
 
@@ -21,17 +28,40 @@ export default {
   data() {
     return {};
   },
+  // computed: {
+  //   type() {
+  //     let type = this.$route.params.type;
+  //     return type === undefined ? 2 : type;
+  //   }
+  // },
+  created() {
+    // this.toSwitch(this.type);
+  },
   components: {},
   methods: {
     toUser() {
-      this.$router.push('/user')
-    }
+      this.$router.push("/user");
+    },
+    // back() {
+    //   this.$router.push("/movie");
+    // },
+    // toSwitch(type) {
+    //   if (type == 2) return;
+    //   if (type == 1) {
+    //     this.$router.push("/movie/all/1");
+    //   } else {
+    //     this.$router.push("/movie/all/0");
+    //   }
+    // }
   }
 };
 </script>
 
 <style lang="scss">
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   height: 56px;
   line-height: 56px;
@@ -46,8 +76,8 @@ export default {
       display: block;
       width: 100%;
       height: 100%;
-      background: url('./logo.png') no-repeat;
-      background-size: contain; 
+      background: url("./logo.png") no-repeat;
+      background-size: contain;
     }
   }
   .user {
