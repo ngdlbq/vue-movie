@@ -26,23 +26,29 @@ export default {
       }
     };
   },
+  beforeRouteUpdate(to, from, next) {
+    console.log(to, from)
+    this.getMovieList(to.params.type);
+    next()
+  },
   computed: {
     type() {
       return this.$route.params.type;
     }
   },
   created() {
-    this.getMovieList({
-      ...this.params,
-      type: this.type
-    });
+    console.log(111)
+    this.getMovieList(this.type);
   },
   components: {
     "movie-info": MovieInfo
   },
   methods: {
-    async getMovieList(params) {
-      let { movies } = await movie(params);
+    async getMovieList(type) {
+      let { movies } = await movie({
+        type,
+        ...this.params
+      });
       this.movieList = movies;
     },
     toSwitch(type) {
