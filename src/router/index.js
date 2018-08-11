@@ -8,7 +8,8 @@ import Search from '@/webview/search'
 import AllMovie from '@/webview/all-movie'
 import Detail from '@/webview/detail'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
+
 const routes = [{
   path: '/',
   redirect: '/movie'
