@@ -5,8 +5,8 @@ import router from './router'
 import App from './App'
 
 Vue.config.productionTip = false
-
 // this is vue-movie
+// this is masetr
 /* eslint-disable no-new */
 const vm = new Vue({
   el: '#app',
